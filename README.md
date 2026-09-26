@@ -1,5 +1,5 @@
-# Retail Store Sample App - GitOps with Amazon EKS Auto Mode
- 
+# Retail Store Sample App - GitOps with Azure Kubernetes Service (AKS)
+
 ![Banner](./docs/images/banner.png)
 
 <div align="center">
@@ -178,7 +178,7 @@ az account set --subscription <subscription-id>
 ### Step 2. Clone the Repository:
 
 ```sh
-git clone https://github.com/Neha409/retail-store-sample-app.git
+git clone https://github.com/LondheShubham153/retail-store-sample-app.git
 ```
 
 > [!IMPORTANT]
