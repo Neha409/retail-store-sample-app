@@ -1,0 +1,16 @@
+prefix               = "myapp"
+location             = "eastus"
+node_count           = 2
+min_node_count       = 2
+max_node_count       = 2
+vm_size              = "Standard_D2s_v5"
+acme_email           = "neha50089820@gmail.com"
+
+enable_nginx_ingress = true
+enable_cert_manager  = true
+enable_argocd        = true
+
+tags = {
+  Environment = "dev"
+  Owner       = "platform-team"
+}
