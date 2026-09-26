@@ -2,13 +2,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: retail-store-checkout
-  namespace: argocd
+  namespace: argocd 
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
   project: retail-store
   source:
-    repoURL: https://github.com/LondheShubham153/retail-store-sample-app
+    repoURL: https://github.com/Neha409/retail-store-sample-app.git
     targetRevision: main
     path: src/checkout/chart
     helm:
