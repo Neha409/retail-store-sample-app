@@ -188,3 +188,20 @@ resource "helm_release" "argocd" {
     helm_release.cert_manager,
   ]
 }
+
+# =============================================================================
+# ARGOCD CONFIGURATION
+# =============================================================================
+
+resource "kubectl_manifest" "argocd_projects" {
+  for_each   = fileset("${path.module}/../argocd/projects", "*.yaml")
+  yaml_body  = file("${path.module}/../argocd/projects/${each.value}")
+  depends_on = [helm_release.argocd]
+}
+
+resource "kubectl_manifest" "argocd_apps" {
+  for_each   = fileset("${path.module}/../argocd/applications", "*.yaml")
+  yaml_body  = file("${path.module}/../argocd/applications/${each.value}")
+  depends_on = [kubectl_manifest.argocd_projects]
+}
+
