@@ -40,6 +40,18 @@ variable "max_node_count" {
   default     = 2
 }
 
+variable "vnet_address_space" {
+  description = "Address space for the VNet (must not overlap the AKS service CIDR 10.240.0.0/16)"
+  type        = list(string)
+  default     = ["10.10.0.0/16"]
+}
+
+variable "aks_subnet_cidr" {
+  description = "CIDR for the AKS node subnet"
+  type        = string
+  default     = "10.10.0.0/20"
+}
+
 variable "vm_size" {
   description = "VM size for the default node pool"
   type        = string

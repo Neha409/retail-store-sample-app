@@ -52,6 +52,8 @@ resource "azurerm_kubernetes_cluster" "aks" {
   network_profile {
     network_plugin    = var.network_plugin
     load_balancer_sku = "standard"
+    service_cidr      = "10.240.0.0/16"
+    dns_service_ip    = "10.240.0.10"
     network_policy    = var.network_plugin == "azure" ? "azure" : null
   }
 
@@ -63,6 +65,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   }
 
   azure_policy_enabled = true
+  depends_on = [azurerm_subnet_network_security_group_association.aks]
 
   lifecycle {
     ignore_changes = [
